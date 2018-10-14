@@ -26,8 +26,12 @@ namespace CsharpAddressBook
                     case "list":
                         addressBook.ListPeeps();
                         break;
+                    case "remove":
+                        addressBook.RemovePeep(person);
+                        break;
                 }
             }
+            Console.WriteLine("K bye");
             Console.Read();
         }
 
@@ -65,62 +69,77 @@ namespace CsharpAddressBook
 
             public void ListPeeps()
             {
-                foreach (var peep in CurrentPeeps)
+                if (CurrentPeeps.Count() < 1)
                 {
-                    Console.WriteLine($"{peep.FirstName} {peep.LastName}");
+                    Console.WriteLine("Your address book is currently empty.");
                 }
+                else
+                {
+                    foreach (var peep in CurrentPeeps)
+                    {
+                        Console.WriteLine($"{peep.FirstName} {peep.LastName}");
+                    }
+
+                }
+            }
+
+            public void RemovePeep(Person removedPerson)
+            {
+                Console.Write("Who would you like to remove? ");
+                string userInput = Console.ReadLine();
+                CurrentPeeps.Remove(removedPerson);
             }
         }
     }
 }
-            
-            
-  
 
-        //public static void PrintContact(Contact contact)
-        //{
-        //    Console.WriteLine($"First Name: {contact.FirstName}");
-        //    Console.WriteLine($"Last Name: {contact.LastName}");
-        //    Console.WriteLine($"Phone Number: {contact.Phone}");
-        //    Console.WriteLine($"Address: {contact.Address}");
-        //    Console.WriteLine($"Email: {contact.Email}");
-        //    //throw new NotImplementedException();
-        //}
 
-        //private static void ListContacts(List<Contact> contact)
-        //{
-        //    Console.WriteLine("Here is a list of your current contacts: ");
-        //    Console.WriteLine("");
-        //    foreach (var peep in contact)
-        //    {
-        //        //ListContacts(contact);
-        //        PrintContact(peep);
-        //        Console.WriteLine("");
-        //    }
-        //}
 
-        //public string RemoveContact(Contact contact)
-        //{
-        //    Console.WriteLine("Enter the first name of the contact you would like to remove.");
-        //    string firstName = Console.ReadLine();
-        //    Contact contact = Contact.FirstOrDefault(x => x.FirstName.ToLower() == firstName.ToLower());
-        //    if (contact == null)
-        //    {
-        //        Console.WriteLine("That contact could not be found. Press any key to continue.");
-        //        Console.ReadKey();
-        //        return;
-        //    }
-        //    else
-        //    {
-        //        Console.WriteLine("Are you sure?. (Y/N)");
-        //        PrintContact(peep);
-        //        if (Console.ReadKey().Key == ConsoleKey.Y)
-        //        {
-        //            Contact.Remove(contact);
-        //            Console.WriteLine("Contact removed. Press any key to continue.");
-        //            Console.ReadKey();
 
-        //        }
-        //    }
-        //}
+//public static void PrintContact(Contact contact)
+//{
+//    Console.WriteLine($"First Name: {contact.FirstName}");
+//    Console.WriteLine($"Last Name: {contact.LastName}");
+//    Console.WriteLine($"Phone Number: {contact.Phone}");
+//    Console.WriteLine($"Address: {contact.Address}");
+//    Console.WriteLine($"Email: {contact.Email}");
+//    //throw new NotImplementedException();
+//}
+
+//private static void ListContacts(List<Contact> contact)
+//{
+//    Console.WriteLine("Here is a list of your current contacts: ");
+//    Console.WriteLine("");
+//    foreach (var peep in contact)
+//    {
+//        //ListContacts(contact);
+//        PrintContact(peep);
+//        Console.WriteLine("");
+//    }
+//}
+
+//public string RemoveContact(Contact contact)
+//{
+//    Console.WriteLine("Enter the first name of the contact you would like to remove.");
+//    string firstName = Console.ReadLine();
+//    Contact contact = Contact.FirstOrDefault(x => x.FirstName.ToLower() == firstName.ToLower());
+//    if (contact == null)
+//    {
+//        Console.WriteLine("That contact could not be found. Press any key to continue.");
+//        Console.ReadKey();
+//        return;
+//    }
+//    else
+//    {
+//        Console.WriteLine("Are you sure?. (Y/N)");
+//        PrintContact(peep);
+//        if (Console.ReadKey().Key == ConsoleKey.Y)
+//        {
+//            Contact.Remove(contact);
+//            Console.WriteLine("Contact removed. Press any key to continue.");
+//            Console.ReadKey();
+
+//        }
+//    }
+//}
 
