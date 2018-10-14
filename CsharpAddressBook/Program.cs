@@ -19,6 +19,16 @@ namespace CsharpAddressBook
             Contact peep = new Contact();
             Console.Write("Enter first name: ");
             peep.FirstName = Console.ReadLine();
+            Console.Write("Enter last name: ");
+            peep.LastName = Console.ReadLine();
+            Console.Write("Enter phone number: ");
+            peep.Phone = Console.ReadLine();
+            Console.Write("Enter address: ");
+            peep.Address = Console.ReadLine();
+            Console.Write("Enter email address: ");
+            peep.Email = Console.ReadLine();
+
+            contact.Add(peep);
 
 
             //Print();
