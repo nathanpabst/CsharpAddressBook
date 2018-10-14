@@ -33,6 +33,8 @@ namespace CsharpAddressBook
 
             PrintContact(peep);
 
+            ListContacts(contact);
+
             Console.Read();
         }
 
@@ -43,9 +45,19 @@ namespace CsharpAddressBook
             Console.WriteLine($"Phone Number: {contact.Phone}");
             Console.WriteLine($"Address: {contact.Address}");
             Console.WriteLine($"Email: {contact.Email}");
-
-
             //throw new NotImplementedException();
+        }
+
+        private static void ListContacts(List<Contact> contact)
+        {
+            Console.WriteLine("Here is a list of your current contacts: ");
+            Console.WriteLine("");
+            foreach (var peep in contact)
+            {
+                //ListContacts(contact);
+                PrintContact(peep);
+                Console.WriteLine("");
+            }
         }
     }
 
