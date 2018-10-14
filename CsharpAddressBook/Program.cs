@@ -15,13 +15,16 @@ namespace CsharpAddressBook
             string command = "";
             while (command != "exit")
             {
-                Console.Clear();
-                Console.Write("Please select one from the following commands (add, remove, exit): ");
+                //Console.Clear();
+                Console.Write("Please select one from the following commands (add, list, remove, exit): ");
                 command = Console.ReadLine().ToLower();
                 switch (command)
                 {
                     case "add":
-                    addressBook.AddPerson(person);
+                        addressBook.AddPerson(person);
+                        break;
+                    case "list":
+                        addressBook.ListPeeps();
                         break;
                 }
             }
@@ -40,8 +43,10 @@ namespace CsharpAddressBook
                 CreatedOn = createdOn;
             }
 
-            public static List<Person> People = new List<Person>();
+            //Create a property for holding a list of current peeps
+            List<Person> CurrentPeeps { get; } = new List<Person>();
 
+            //Create a method that allows external user to add a contact
             public void AddPerson(Person newPerson)
             {
                 Console.Write("Enter first name: ");
@@ -55,41 +60,21 @@ namespace CsharpAddressBook
                 Console.Write("Enter email address: ");
                 newPerson.Email = Console.ReadLine();
 
-                People.Add(newPerson);
+                CurrentPeeps.Add(newPerson);
+            }
+
+            public void ListPeeps()
+            {
+                foreach (var peep in CurrentPeeps)
+                {
+                    Console.WriteLine($"{peep.FirstName} {peep.LastName}");
+                }
             }
         }
     }
 }
-            //List<Contact> contact = new List<Contact>();
-            //contact.Add(new Contact()
-            //{
-            //    FirstName = "Nathan",
-            //    LastName = "Pabst",
-            //    Phone = "816-229-0960",
-            //    Address = "304 Stonewood Court Blue Springs, MO 64015",
-            //    Email = "bob@lawblogs.com"
-            //});
-            //Contact peep = new Contact();
-            //Console.Write("Enter first name: ");
-            //peep.FirstName = Console.ReadLine();
-            //Console.Write("Enter last name: ");
-            //peep.LastName = Console.ReadLine();
-            //Console.Write("Enter phone number: ");
-            //peep.Phone = Console.ReadLine();
-            //Console.Write("Enter address: ");
-            //peep.Address = Console.ReadLine();
-            //Console.Write("Enter email address: ");
-            //peep.Email = Console.ReadLine();
-
-            //contact.Add(peep);
-
-
-            //PrintContact(peep);
-
-            //ListContacts(contact);
-
-            //RemoveContact(contact);
-
+            
+            
   
 
         //public static void PrintContact(Contact contact)
