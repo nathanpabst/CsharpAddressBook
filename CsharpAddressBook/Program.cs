@@ -28,7 +28,7 @@ namespace CsharpAddressBook
             Console.Write("Enter email address: ");
             peep.Email = Console.ReadLine();
 
-            //contact.Add(peep);
+            contact.Add(peep);
 
 
             //Print();
