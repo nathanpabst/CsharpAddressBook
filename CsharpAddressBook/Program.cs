@@ -26,6 +26,9 @@ namespace CsharpAddressBook
                     case "list":
                         addressBook.ListPeeps();
                         break;
+                    case "remove":
+                        addressBook.RemovePeep(person);
+                        break;
                 }
             }
             Console.Read();
@@ -69,6 +72,13 @@ namespace CsharpAddressBook
                 {
                     Console.WriteLine($"{peep.FirstName} {peep.LastName}");
                 }
+            }
+
+            public void RemovePeep(Person removedPerson)
+            {
+                Console.Write("Who would you like to remove? ");
+                string userInput = Console.ReadLine();
+                CurrentPeeps.Remove(removedPerson);
             }
         }
     }
