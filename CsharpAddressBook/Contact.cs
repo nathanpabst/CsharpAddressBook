@@ -26,12 +26,17 @@ namespace CsharpAddressBook
         {
         }
 
+        public static void PrintContact(Contact contact)
+        {
+            Console.WriteLine($"First Name: {contact.FirstName}");
+            Console.WriteLine($"Last Name: {contact.LastName}");
+            Console.WriteLine($"Phone Number: {contact.Phone}");
+            Console.WriteLine($"Address: {contact.Address}");
+            Console.WriteLine($"Email: {contact.Email}");
 
 
-        //public void Print()
-        //{
-        //    Console.WriteLine($"{FirstName}");
-        //}
+            //throw new NotImplementedException();
+        }
 
 
     }

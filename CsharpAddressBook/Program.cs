@@ -31,9 +31,33 @@ namespace CsharpAddressBook
             contact.Add(peep);
 
 
-            //Print();
+            PrintContact(peep);
+
+            ListContacts(contact);
 
             Console.Read();
+        }
+
+        public static void PrintContact(Contact contact)
+        {
+            Console.WriteLine($"First Name: {contact.FirstName}");
+            Console.WriteLine($"Last Name: {contact.LastName}");
+            Console.WriteLine($"Phone Number: {contact.Phone}");
+            Console.WriteLine($"Address: {contact.Address}");
+            Console.WriteLine($"Email: {contact.Email}");
+            //throw new NotImplementedException();
+        }
+
+        private static void ListContacts(List<Contact> contact)
+        {
+            Console.WriteLine("Here is a list of your current contacts: ");
+            Console.WriteLine("");
+            foreach (var peep in contact)
+            {
+                //ListContacts(contact);
+                PrintContact(peep);
+                Console.WriteLine("");
+            }
         }
     }
 
